@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.my1stapplication.accountInfo"
+    tools:showIn="@layout/profile_">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            style="@style/headerText"
+            android:text="Account Information"
+            android:layout_marginBottom="20dp"/>
+
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/nameImageView"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Name"
+                android:layout_toRightOf="@id/nameImageView"
+                android:id="@+id/namee"
+                style="@style/profileDetailsTextMain" />
+
+            <EditText
+                style="@style/profileDetailsMiniText"
+                android:id="@+id/name"
+                android:layout_width="fill_parent"
+                android:singleLine="true"
+                android:layout_toRightOf="@id/nameImageView"
+                android:editable="true"
+                android:layout_below="@+id/namee"
+                android:text="" />
+
+        </RelativeLayout>
+
+        <View style="@style/proifleDetailsView" />
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/mobileImageView"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Phone"
+                android:id="@+id/phonee"
+                android:layout_toRightOf="@id/mobileImageView"
+                style="@style/profileDetailsTextMain"/>
+
+            <EditText
+                android:id="@+id/phone"
+                style="@style/profileDetailsMiniText"
+                android:layout_width="fill_parent"
+                android:layout_below="@+id/phonee"
+                android:layout_toRightOf="@id/mobileImageView"
+                android:editable="true"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:text="" />
+
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+        <TextView
+            style="@style/headerText"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Payment Information" />
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/addressImageView"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="IBAN"
+                android:id="@+id/IBANE"
+                android:layout_toRightOf="@id/addressImageView"
+                style="@style/profileDetailsTextMain" />
+
+            <EditText
+                android:id="@+id/IBAN"
+                style="@style/profileDetailsMiniText"
+                android:layout_below="@+id/IBANE"
+                android:singleLine="true"
+                android:layout_width="fill_parent"
+                android:layout_toRightOf="@id/addressImageView"
+                android:maxLength="25"
+                android:editable="true"
+                android:text="" />
+
+        </RelativeLayout>
+
+        <View style="@style/proifleDetailsView" />
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/dobImageView"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Bank"
+                android:id="@+id/Banke"
+                android:layout_toRightOf="@id/dobImageView"
+                style="@style/profileDetailsTextMain" />
+
+            <EditText
+                android:text=""
+                android:id="@+id/bank"
+                android:layout_below="@+id/Banke"
+                android:singleLine="true"
+                android:layout_width="fill_parent"
+                android:editable="true"
+                android:layout_toRightOf="@id/dobImageView"
+                style="@style/profileDetailsMiniText" />
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/dobImageView2"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Account owner"
+                android:id="@+id/accO"
+                android:layout_toRightOf="@id/dobImageView2"
+                style="@style/profileDetailsTextMain" />
+
+            <EditText
+                android:text=""
+                android:id="@+id/accc"
+                android:singleLine="true"
+                android:layout_width="fill_parent"
+                android:layout_below="@+id/accO"
+                android:editable="true"
+                android:layout_toRightOf="@id/dobImageView2"
+                style="@style/profileDetailsMiniText" />
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+
+        <TextView
+            style="@style/headerText"
+            android:text="Address"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"/>
+
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/addressImageView4"
+
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Address"
+                android:id="@+id/addr"
+                android:layout_toRightOf="@id/addressImageView4"
+                style="@style/profileDetailsTextMain" />
+
+            <EditText
+                android:id="@+id/address"
+                style="@style/profileDetailsMiniText"
+                android:layout_below="@+id/addr"
+                android:layout_width="fill_parent"
+                android:singleLine="true"
+                android:layout_toRightOf="@id/addressImageView4"
+                android:maxLength="25"
+                android:editable="true"
+                android:text="" />
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+        <TextView
+            style="@style/profileStyledBackButton"
+            android:layout_gravity="center"
+            android:text="Update"
+            android:id="@+id/Update"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center" />
+        <View style="@style/proifleDetailsView" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

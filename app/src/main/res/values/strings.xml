@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Re-Learn</string>
+    <array name="types">
+        <item>Text book</item>
+        <item>Power Point slides</item>
+        <item>notes</item>
+        <item>previous exams</item>
+        <item>work sheets</item>
+        <item>assignments and projects</item>
+        <item>other</item>
+
+    </array>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <array name="uni">
+        <item>KSU</item>
+        <item>PNU</item>
+        <item>IMAMU</item>
+        <item>PSU</item>
+        <item>ALFAISAL</item>
+        <item>DAU</item>
+        <item>KSAU-HS</item>
+        <item>Almaarefa</item>
+        <item>Riyadh Elm Uni</item>
+        <item>KAU</item>
+
+    </array>
+    <array name="cities">
+        <item>Riyadh</item>
+        <item>Jeddah</item>
+        <item>Makkah</item>
+        <item>Dammam</item>
+        <item>Hail</item>
+        <item>Khobar</item>
+        <item>Taif</item>
+        <item>Abha</item>
+        <item>Jazan</item>
+        <item>Najran</item>
+        <item>Tabuk</item>
+        <item>Aljouf</item>
+
+        <item>Almadinah</item>
+        <item>Albaha</item>
+        <item>Other - please spicify with district</item>
+    </array>
+
+    <string name="title_home">Home</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_post">Post</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_fav">favorite</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

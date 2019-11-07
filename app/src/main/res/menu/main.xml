@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item-->
+<!--        android:id="@+id/click_out"-->
+<!--        android:icon="@drawable/out_write_tiffany"-->
+<!--        android:title="Logout"-->
+<!--        app:showAsAction="always" />-->
+<!--    <item-->
+<!--        android:id="@+id/click_profile"-->
+<!--        android:icon="@drawable/profile_tiffany"-->
+<!--        android:title="Profile"-->
+<!--        app:showAsAction="always"/>-->
+
+</menu>
