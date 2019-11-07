@@ -109,17 +109,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (!(TextUtils.isEmpty(Phone))){
             if (Phone.length()<10){
-                Toast.makeText(MainActivity.this,"phone number must be 10 digits not less ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"phone number must not be less than 10 digits",Toast.LENGTH_SHORT).show();
             return;}
             else if  (Phone.length()>10){
 
-             Toast.makeText(MainActivity.this,"phone number must be 10 digits not more  ",Toast.LENGTH_SHORT).show();
+             Toast.makeText(MainActivity.this,"phone number must not be more than 10 digits",Toast.LENGTH_SHORT).show();
                 return;}
         }
 
 
 
-        mDialog.setMessage("Creating User please wait...");
+        mDialog.setMessage("Welcome to our community, we are currently creating your account..");
         mDialog.setCanceledOnTouchOutside(false);
         mDialog.show();
         mAuth.createUserWithEmailAndPassword(Email, Password)
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(MainActivity.this,"Check your Email for verification",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"Check your E-mail for verification",Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
                         //Added by nada to catch the user ID and create a table that handles its ID
                         userID = user.getUid();

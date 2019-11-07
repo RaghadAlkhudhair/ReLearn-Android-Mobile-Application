@@ -41,13 +41,14 @@ public class ActivityLogin extends AppCompatActivity {
             public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Toast.makeText(ActivityLogin.this, "user logged in ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityLogin.this, "" +
+                            "Welcome! You are now logged in", Toast.LENGTH_SHORT).show();
                     //Added by Nada, to catch the user ID whenever logged IN
                     MainActivity.userID = user.getUid();
                     Intent I = new Intent(ActivityLogin.this, BooksList.class);
                     startActivity(I);
                 } else {
-                    Toast.makeText(ActivityLogin.this, "Login to continue", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityLogin.this, "Log in to continue", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -70,7 +71,7 @@ public class ActivityLogin extends AppCompatActivity {
             public void onClick(View view) {
                 String userEmail = loginEmailId.getText().toString();
                 final String userPaswd = logInpasswd.getText().toString();
-                if(userEmail.equals("admin@gmail.com") && userPaswd.equals("admin123")){
+                if(userEmail.equals("admin@ReLearn.com") && userPaswd.equals("adminadmin")){
                     startActivity(new Intent(ActivityLogin.this, Admin.class));
                 }
                 if (userEmail.isEmpty()) {
@@ -80,7 +81,7 @@ public class ActivityLogin extends AppCompatActivity {
                     logInpasswd.setError("Enter Password!");
                     logInpasswd.requestFocus();
                 } else if (userEmail.isEmpty() && userPaswd.isEmpty()) {
-                    Toast.makeText(ActivityLogin.this, "Fields Empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityLogin.this, "Fields are empty!, please fill them", Toast.LENGTH_SHORT).show();
                 } else if (!(userEmail.isEmpty() && userPaswd.isEmpty())) {
                     firebaseAuth.signInWithEmailAndPassword(userEmail, userPaswd)
                             .addOnCompleteListener(ActivityLogin.this, new OnCompleteListener<AuthResult>() {
