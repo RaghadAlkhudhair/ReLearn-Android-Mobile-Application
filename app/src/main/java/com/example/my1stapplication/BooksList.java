@@ -211,14 +211,13 @@ public class BooksList extends AppCompatActivity implements NavigationView.OnNav
 
                 postslist.clear();
 
-                for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                for(DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     Post post = postSnapshot.getValue(Post.class);
 
-                postslist.add(post);
-                    listViewPosts.setAdapter(adapter);
-
+                    postslist.add(post);
                 }
-
+                postsList adapter= new postsList(BooksList.this, postslist );
+                listViewPosts.setAdapter(adapter);
                 listViewPosts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view,
