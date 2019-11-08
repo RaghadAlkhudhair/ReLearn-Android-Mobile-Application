@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaymentDetails"></activity>
+        <activity android:name=".ConfrimAddMaterial"></activity>
+        <activity android:name=".PaymentDetails" />
         <activity android:name=".ConfirmOrder" />
         <activity android:name="com.test.my1stapplication.payment" />
         <!--
@@ -60,8 +61,7 @@
         <activity
             android:name=".accountInfo"
             android:theme="@style/AppTheme.ProfileTheme" />
-        <activity android:name=".FaviroteActivity">
-        </activity>
+        <activity android:name=".FaviroteActivity"></activity>
     </application>
 
 </manifest>

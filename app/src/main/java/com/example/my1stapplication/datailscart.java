@@ -47,7 +47,6 @@ public class datailscart extends AppCompatActivity {
         uniname =findViewById(R.id.uniname);
         descr=findViewById(R.id.descr);
         Button mainsitebtn = findViewById(R.id.mainsitebtn)      ;
-        Button fav = findViewById(R.id.addFav);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mCustomerRefernce = mFirebaseDatabase.getReference();
         final String itemName = getIntent().getStringExtra("itemName");
@@ -61,22 +60,16 @@ public class datailscart extends AppCompatActivity {
         mainsitebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
+
+               DatabaseReference pp = FirebaseDatabase.getInstance().getReference("posts").child(ID);
+               // Post product=new Post(ID,matrialT.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
                 Log.e("Test",coursename);
-                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(product);
+                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(pp);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
 
-        fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
-                Log.e("Test","Book added to Favorite");
-                mCustomerRefernce.child("Fav").child(MainActivity.userID).child(ID).setValue(product);
-                Toast.makeText(datailscart.this, "Added to Favorite", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         FirebaseApp.initializeApp(this);
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("posts");
