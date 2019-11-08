@@ -4,10 +4,11 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/materialname"
 
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/materialname1"
+
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -19,11 +20,11 @@
         android:text="Material name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/coursename"
+        android:id="@+id/uniname1"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,11 +32,47 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginRight="261dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
         android:text="TextView"
-        android:textSize="14sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/coursename1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/price1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginBottom="7dp"
+        android:text="TextView"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView22"
@@ -45,12 +82,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="60dp"
         android:text="UNIVERSITY:"
         android:textColor="#5FB5C4"
-        android:textSize="14sp" />
+        android:textSize="12sp"
+        />
 
     <TextView
         android:id="@+id/textView23"
@@ -65,7 +103,8 @@
         android:layout_marginTop="92dp"
         android:text="COURSE:"
         android:textColor="#5FB5C4"
-        android:textSize="14sp" />
+        android:textSize="12sp"
+        />
 
     <TextView
         android:id="@+id/textView24"
@@ -81,52 +120,19 @@
         android:layout_marginBottom="7dp"
         android:text="PRICE IN SR:"
         android:textColor="#5FB5C4"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/uniname"
-        android:layout_width="121dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="189dp"
-        android:layout_marginRight="189dp"
-        android:layout_toEndOf="@+id/textView22"
-        android:layout_toRightOf="@+id/textView22"
-        android:text="TextView"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginRight="188dp"
-        android:layout_toEndOf="@+id/textView24"
-        android:layout_toRightOf="@+id/textView24"
-        android:text="TextView" />
-
+        android:textSize="12sp"
+        />
 
     <ImageButton
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="103dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="-283dp"
+        android:layout_marginRight="-283dp"
+        android:layout_toStartOf="@+id/materialname1"
+        android:layout_toLeftOf="@+id/materialname1"
         android:background="@android:color/transparent"
         android:src="@drawable/delete_tiffany" />
 
