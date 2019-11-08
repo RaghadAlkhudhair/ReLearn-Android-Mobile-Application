@@ -129,12 +129,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="151dp"
-        android:layout_marginEnd="-83dp"
-        android:layout_marginRight="3dp"
-        android:layout_toStartOf="@+id/price"
-        android:layout_toLeftOf="@+id/price"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="54dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_fav_cart" />
+        app:srcCompat="@drawable/ic_fav_cart" />
+
+    <ImageButton
+        android:id="@+id/removeFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="24dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/delete_tiffany" />
 
 </RelativeLayout>

@@ -208,35 +208,13 @@ public class BooksList extends AppCompatActivity implements NavigationView.OnNav
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                postslist.clear();
-
+                listViewPosts.setAdapter(adapter);
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     Post post = postSnapshot.getValue(Post.class);
-
-                postslist.add(post);
-                    listViewPosts.setAdapter(adapter);
-
+                    postslist.add(post);
                 }
 
-                listViewPosts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-                        Intent intent = new Intent(BooksList.this, datailscart.class);
-                        intent.putExtra("itemName",postslist.get(position).getMaterialname());
-                        intent.putExtra("itemPrice",postslist.get(position).getPrice());
-                        intent.putExtra("uni",postslist.get(position).getUniname());
-                        intent.putExtra("ID",postslist.get((position)).getPostID());
-                        intent.putExtra("coursename",postslist.get(position).getCoursename());
-                        intent.putExtra("Hide","false");
-                        startActivity(intent);
-
-                    }
-                });
-
-
-               // postsList adapter= new postsList(BooksList.this, postslist );
+                               // postsList adapter= new postsList(BooksList.this, postslist );
           //listViewPosts.setAdapter(adapter);
 
 

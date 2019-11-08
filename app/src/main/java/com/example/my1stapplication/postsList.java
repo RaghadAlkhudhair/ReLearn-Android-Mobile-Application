@@ -1,8 +1,12 @@
 package com.example.my1stapplication;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,12 +18,15 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class postsList extends ArrayAdapter<Post> {
     FirebaseDatabase mydatabase;
-    DatabaseReference myRef;
+    DatabaseReference myRef,myRef2;
 
     private Activity context;
    public List<Post> postslist;
@@ -48,11 +55,14 @@ public class postsList extends ArrayAdapter<Post> {
     }
 
 
-
+    @Override
+    public int getPosition(@Nullable Post item) {
+        return super.getPosition(item);
+    }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
 
         View listviewitem= inflater.inflate(R.layout.bookslistlayout,null, true);
@@ -62,7 +72,6 @@ public class postsList extends ArrayAdapter<Post> {
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
         final ImageButton ib_fav = (ImageButton)listviewitem.findViewById(R.id.ib_fav);
         final Post post = postslist.get(position);
-
         materialname1.setText(post.getMaterialname());
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
@@ -78,6 +87,20 @@ public class postsList extends ArrayAdapter<Post> {
             }
         });
 
+        listviewitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), datailscart.class);
+                intent.putExtra("itemName",post.getMaterialname());
+                intent.putExtra("itemPrice",post.getPrice());
+                intent.putExtra("uni",post.getUniname());
+                intent.putExtra("ID",post.getPostID());
+                intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("Hide","false");
+                Log.e("test","inside detail");
+                getContext().startActivity(intent);
+            }
+        });
         if(total.isEmpty())
             total.addAll(postslist);
 

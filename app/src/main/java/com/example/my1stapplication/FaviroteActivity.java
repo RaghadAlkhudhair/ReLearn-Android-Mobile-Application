@@ -21,7 +21,7 @@ import java.util.List;
 public class FaviroteActivity extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase mydatabase;
-    DatabaseReference myRef;
+    DatabaseReference myRef,myRef2;
     List<Post> myarray = new ArrayList<>();
     ListView lv_fav;
 
@@ -33,6 +33,7 @@ public class FaviroteActivity extends AppCompatActivity {
         mydatabase = FirebaseDatabase.getInstance();
 
         myRef = mydatabase.getReference("Fav").child(MainActivity.userID);
+        myRef2 = mydatabase.getReference("Fav").child(MainActivity.userID);
         final favList adapter= new favList(FaviroteActivity.this,myarray );
         lv_fav = (ListView)findViewById(R.id.lv_fav);
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -43,7 +44,6 @@ public class FaviroteActivity extends AppCompatActivity {
 
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     Post post = postSnapshot.getValue(Post.class);
-
                     myarray.add(post);
                     lv_fav.setAdapter(adapter);
                     adapter.notifyDataSetChanged();

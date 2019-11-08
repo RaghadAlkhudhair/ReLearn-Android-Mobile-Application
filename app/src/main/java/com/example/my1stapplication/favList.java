@@ -68,7 +68,7 @@ public class favList extends ArrayAdapter<Post> {
         TextView uniname1 = (TextView) listviewitem.findViewById(R.id.uniname);
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
         ImageButton aCa = (ImageButton) listviewitem.findViewById(R.id.addCart);
-
+        ImageButton aDa = (ImageButton) listviewitem.findViewById(R.id.removeFav);
         final Post post = postslist.get(position);
         myref = FirebaseDatabase.getInstance().getReference("Fav").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         mDatabaseReference= FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -83,7 +83,16 @@ public class favList extends ArrayAdapter<Post> {
                 mDatabaseReference.child(post.getPostID()).setValue(post);
                 myref.child(post.getPostID()).removeValue();
                 remove(post);
-                Toast.makeText(getContext(), "Books has been added \n to the cart successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Book has been added \n to the cart successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        aDa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myref.child(post.getPostID()).removeValue();
+                remove(post);
+                Toast.makeText(getContext(), "Book has been removed successfully", Toast.LENGTH_SHORT).show();
             }
         });
         if(total.isEmpty())
