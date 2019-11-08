@@ -61,9 +61,10 @@ public class datailscart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Post product=new Post(ID,matrialT.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
+               DatabaseReference pp = FirebaseDatabase.getInstance().getReference("posts").child(ID);
+               // Post product=new Post(ID,matrialT.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
                 Log.e("Test",coursename);
-                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(product);
+                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(pp);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });

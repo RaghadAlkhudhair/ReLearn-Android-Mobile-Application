@@ -101,10 +101,21 @@ public void addPost(){
             !TextUtils.isEmpty(coursename1) && !TextUtils.isEmpty(uniname1) &&
             !TextUtils.isEmpty(price1) && !TextUtils.isEmpty(spinner1) && !TextUtils.isEmpty(description1) )
     {
-        String id=   db.push().getKey();
-        Post post = new Post(id,materialname1,coursename1,uniname1,spinner1,price1 ,description1);
-        db.child(id).setValue(post);
-        Toast.makeText(this,"Done", Toast.LENGTH_LONG).show();
+       // String id=   db.push().getKey();
+        //Post post = new Post(id,materialname1,coursename1,uniname1,spinner1,price1 ,description1);
+        //db.child(id).setValue(post);
+        //Toast.makeText(this,"Done", Toast.LENGTH_LONG).show();
+
+        Intent n= new Intent (test.this, ConfrimAddMaterial.class);
+        n.putExtra("materialname",materialname1 );
+        n.putExtra("coursename",coursename1 );
+        n.putExtra("uniname",uniname1 );
+        n.putExtra("materialtype",spinner1 );
+        n.putExtra("price",price1 );
+        n.putExtra("description",description1 );
+        startActivity(n);
+
+
     }else{
         Toast.makeText(this,"please make sure all information are entered",Toast.LENGTH_LONG).show();
 
