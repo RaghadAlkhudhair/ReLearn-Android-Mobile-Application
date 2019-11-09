@@ -93,9 +93,11 @@ cancel.setOnClickListener(new View.OnClickListener() {
                 if (!TextUtils.isEmpty(district.getText().toString()) && !TextUtils.isEmpty(streetName.getText().toString())
                         && !TextUtils.isEmpty(houseNo.getText().toString()) && !TextUtils.isEmpty(phoneNo.getText().toString())) {
 
-
+if(phoneNo.getText().toString().length()==10 && !phoneNo.getText().toString().contains(".") )
                     processPayment();
-
+else{
+    Toast.makeText(getApplicationContext(), "please ensure phone number is valid", Toast.LENGTH_LONG).show();
+}
 
                 } else {
                     Toast.makeText(getApplicationContext(), "please enter all fields", Toast.LENGTH_LONG).show();
