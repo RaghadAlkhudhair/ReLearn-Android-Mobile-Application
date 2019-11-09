@@ -29,21 +29,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="172dp"
         android:layout_marginLeft="172dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="126dp"
         android:layout_marginRight="126dp"
         android:text="Total price is: 0SR"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listCartPosts" />
-
 
     <Button
         android:id="@+id/confrimButton"
         android:layout_width="156dp"
         android:layout_height="51dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginLeft="78dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
         android:layout_marginTop="73dp"
         android:layout_marginBottom="61dp"
         android:background="@drawable/btn_shape_round"
@@ -51,8 +51,8 @@
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total" />
-
+        app:layout_constraintTop_toBottomOf="@+id/total"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/listCartPosts"
