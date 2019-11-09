@@ -44,7 +44,7 @@ ImageView home;
         price = (EditText) findViewById(R.id.price);
         description = (EditText) findViewById(R.id.description);
 home = (ImageView) findViewById(R.id.home);
-        spinner = (Spinner) findViewById(R.id.uniname);
+        spinner = (Spinner) findViewById(R.id.spinner3);
         buttonDone = (Button) findViewById(R.id.button6);
         Cancel = (Button) findViewById(R.id.cancel_);
 
