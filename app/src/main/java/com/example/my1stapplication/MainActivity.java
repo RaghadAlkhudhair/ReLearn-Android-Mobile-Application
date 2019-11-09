@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //End of lines added by Nada
 
 
-                        mdatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("longitude").setValue("7887.98");
+                       // mdatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("longitude").setValue("7887.98");
                     }
                 }
             });
