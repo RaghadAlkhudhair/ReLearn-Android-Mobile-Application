@@ -103,7 +103,7 @@ public class CartList extends Activity {
                     Double thisPrice=Double.parseDouble(post.getPrice());
                     total=total+thisPrice;
                 }
-                TotalView.setText("Sum Price: "+total+ " SR" +"\n" + "Shipment: 20 SR\n\n"+"Total: "+(total+20)+" SR");
+                TotalView.setText("Total Price: "+total+ " SR" +"\n" + "Shipment: 20 SR\n\n"+"Total: "+(total+20)+" SR");
             }
 
             @Override
