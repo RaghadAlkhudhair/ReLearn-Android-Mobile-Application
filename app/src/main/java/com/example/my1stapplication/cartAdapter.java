@@ -51,7 +51,7 @@ public class cartAdapter extends ArrayAdapter<Post> {
         if(listviewitem==null) {
             listviewitem = inflater.inflate(R.layout.cart_list, parent, false);
         }
-        ImageButton delete = (ImageButton) listviewitem.findViewById(R.id.delete);
+        ImageButton delete = (ImageButton) listviewitem.findViewById(R.id.removeFav);
         TextView materialname1 = (TextView) listviewitem.findViewById(R.id.materialname);
         TextView coursename1 = (TextView) listviewitem.findViewById(R.id.coursename);
         TextView uniname1 = (TextView) listviewitem.findViewById(R.id.uniname);
@@ -59,7 +59,7 @@ public class cartAdapter extends ArrayAdapter<Post> {
 
         final Post post = postslist.get(position);
         mDatabaseReference= FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        materialname1.setText(post.getCoursename());
+        materialname1.setText(post.getMaterialname());
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());

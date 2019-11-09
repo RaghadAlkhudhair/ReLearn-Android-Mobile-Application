@@ -34,17 +34,17 @@
 
     <Button
         android:id="@+id/saveLoc"
-        android:layout_width="220dp"
-        android:layout_height="34dp"
+        android:layout_width="215dp"
+        android:layout_height="51dp"
         android:layout_alignParentEnd="true"
 
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="660dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginRight="91dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_shape_round"
         android:text="Save Location "
         android:textColor="@color/common_google_signin_btn_text_dark_default"
