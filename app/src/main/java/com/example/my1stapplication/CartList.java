@@ -55,6 +55,7 @@ public class CartList extends Activity {
     final HashMap<String, Object> ordersMap=new HashMap<>();
     final HashMap<String, Object> cartMap=new HashMap<>();
     Button confirmButton;
+    Button Back;
 
 
     @Override
@@ -67,6 +68,7 @@ public class CartList extends Activity {
         listViewPosts = (ListView) findViewById(R.id.listCartPosts);
         TotalView=(TextView)findViewById(R.id.total);
         confirmButton=(Button)findViewById(R.id.confrimButton);
+        Back=(Button)findViewById(R.id.Back);
 
         //final String uni = getIntent().getStringExtra("uni");
         //final String coursename = getIntent().getStringExtra("coursename");
@@ -147,6 +149,13 @@ public class CartList extends Activity {
                 }}
         });
 
+        Back.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToHome();
+            }
+        });
+
 
 
     }
@@ -195,6 +204,13 @@ public class CartList extends Activity {
     protected void onResume() {
         super.onResume();
 
+    }
+
+
+    public void moveToHome(){
+
+        Intent intent = new Intent(CartList.this, BooksList.class);
+        startActivity(intent);
     }
 
    /* public void Notifications(View view) {
