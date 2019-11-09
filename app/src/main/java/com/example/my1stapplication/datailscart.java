@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class datailscart extends AppCompatActivity {
+public class datailscart extends AppCompatActivity implements java.io.Serializable {
     private FirebaseDatabase mItemsFirebaseDatabase;
     private DatabaseReference mItemsDatabaseReference;
     private FirebaseDatabase mFirebaseDatabase;
@@ -63,8 +63,8 @@ public class datailscart extends AppCompatActivity {
 
                DatabaseReference pp = FirebaseDatabase.getInstance().getReference("posts").child(ID);
                // Post product=new Post(ID,matrialT.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
-                Log.e("Test",coursename);
-                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(pp);
+               // Log.e("Test",coursename);
+                mCustomerRefernce.child("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(ID).setValue(pp);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });

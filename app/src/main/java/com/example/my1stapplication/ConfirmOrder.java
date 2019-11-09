@@ -114,22 +114,27 @@ cancel.setOnClickListener(new View.OnClickListener() {
         final   String streetName1 = streetName.getText().toString();
         final    String houseNo1 = houseNo.getText().toString();
         final String phoneNo1 = phoneNo.getText().toString();
+        String f="false";
 
         // Double totalPrice = getIntent().getDoubleExtra("totalPrice", 0);
         HashMap<String, Object> cart = (HashMap<String, Object>) getIntent().getSerializableExtra("cart");
         String Orderid = ordersref.push().getKey();
-        ordersMap.put("orderID", Orderid);
-        ordersMap.put("totalPrice", (totalPrice));
-        ordersMap.put("buyerID", FirebaseAuth.getInstance().getCurrentUser().getUid());
-        ordersMap.put("district", district1);
-        ordersMap.put("streetName", streetName1);
-        ordersMap.put("houseNo", houseNo1);
-        ordersMap.put("phoneNo", phoneNo1);
-        ordersMap.put("paied", false);
-        ordersMap.put("shipped", false);
-        ordersMap.put("takenFromOwner", false);
+        ordersMap.put("OrderID", Orderid);
+        ordersMap.put("District", district1);
+        ordersMap.put("StreetName", streetName1);
+        ordersMap.put("BuyerID", FirebaseAuth.getInstance().getCurrentUser().getUid());
+        ordersMap.put("HouseNo", houseNo1);
+        ordersMap.put("TotalPrice", (totalPrice));
+        ordersMap.put("Phone", phoneNo1);
+        ordersMap.put("Shipped", f);
+        ordersMap.put("rePaied", f);
+        ordersMap.put("TakenFromOwner", f);
         //ordersMap.put("inCart", adapter);
-        ordersref.child(Orderid).updateChildren(ordersMap);
+
+        Order o=new Order( Orderid,district1, streetName1,  FirebaseAuth.getInstance().getCurrentUser().getUid(), houseNo1, totalPrice.toString(), phoneNo1,f,f,f);
+        //ordersref.child(Orderid).updateChildren(ordersMap);
+       // ordersref.child(Orderid).child("cart").updateChildren(cart);
+        ordersref.child(Orderid).setValue(o);
         ordersref.child(Orderid).child("cart").updateChildren(cart);
         cartref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).removeValue();
 

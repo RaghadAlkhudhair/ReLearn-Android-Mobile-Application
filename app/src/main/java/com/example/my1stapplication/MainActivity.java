@@ -158,7 +158,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         userOne = new User(name.getText().toString(),email.getText().toString(),IBAN.getText().toString(),phone.getText().toString(),user.getUid(),bank.getText().toString(),address.getText().toString());
                         Log.e("user create","DONE :)");
                         mdatabase.child(user.getUid()).setValue(userOne);
+
                         //End of lines added by Nada
+
+
+                        mdatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("longitude").setValue("7887.98");
                     }
                 }
             });
@@ -196,3 +200,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return Password;
     }
 }
+
+

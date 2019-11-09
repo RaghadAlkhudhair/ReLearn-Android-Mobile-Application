@@ -18,6 +18,7 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -83,7 +84,7 @@ public class postsList extends ArrayAdapter<Post> {
                 ib_fav.setImageResource(R.drawable.ic_favorite_black_24dp);
                 mydatabase = FirebaseDatabase.getInstance();
                 myRef =mydatabase.getReference();
-                myRef.child("Fav").child(MainActivity.userID).child(post.getPostID()).setValue(post);
+                myRef.child("Fav").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(post.getPostID()).setValue(post);
             }
         });
 
