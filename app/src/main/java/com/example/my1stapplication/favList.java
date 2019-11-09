@@ -83,7 +83,7 @@ public class favList extends ArrayAdapter<Post> {
                 mDatabaseReference.child(post.getPostID()).setValue(post);
                 myref.child(post.getPostID()).removeValue();
                 remove(post);
-                Toast.makeText(getContext(), "Book has been added \n to the cart successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Material/s added to cart successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -92,7 +92,7 @@ public class favList extends ArrayAdapter<Post> {
             public void onClick(View v) {
                 myref.child(post.getPostID()).removeValue();
                 remove(post);
-                Toast.makeText(getContext(), "Book has been removed successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Material/s removed successfully", Toast.LENGTH_SHORT).show();
             }
         });
         if(total.isEmpty())
