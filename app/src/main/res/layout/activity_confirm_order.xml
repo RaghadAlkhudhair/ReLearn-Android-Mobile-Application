@@ -118,20 +118,19 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="70dp"
-        android:layout_height="39dp"
+        android:layout_width="60dp"
+        android:layout_height="38dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="43dp"
         android:text="City:"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/district"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/checkout"
