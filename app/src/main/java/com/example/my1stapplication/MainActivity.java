@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.test.my1stapplication.MapsActivity;
 
 import java.util.Date;
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v==mRegisterbtn){
             UserRegister();
+            startActivity(new Intent(MainActivity.this, MapsActivity.class));
         }else if (v== mLoginPageBack){
             startActivity(new Intent(MainActivity.this,ActivityLogin.class));
             Log.e("TAG", "Message");

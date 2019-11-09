@@ -19,6 +19,11 @@
         android:title="@string/title_fav" />
 
     <item
+        android:id="@+id/map"
+        android:icon="@drawable/ic_action_name"
+        android:title="Locator" />
+
+    <item
         android:id="@+id/post"
         android:icon="@drawable/ic_post"
         android:title="@string/title_post" />

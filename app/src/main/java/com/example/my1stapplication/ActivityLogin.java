@@ -109,7 +109,6 @@ public class ActivityLogin extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     @Override

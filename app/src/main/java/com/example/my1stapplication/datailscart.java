@@ -67,7 +67,7 @@ public class datailscart extends AppCompatActivity {
         mainsitebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,materialtype,itemPrice,"Test");
+                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr);
                 Log.e("Test",coursename);
                 mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(product);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
@@ -77,7 +77,7 @@ public class datailscart extends AppCompatActivity {
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,materialtype,itemPrice,"Test");
+                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr);
                 Log.e("Test","Book added to Favorite");
                 mCustomerRefernce.child("Fav").child(MainActivity.userID).child(ID).setValue(product);
                 Toast.makeText(datailscart.this, "Added to Favorite", Toast.LENGTH_SHORT).show();
@@ -94,7 +94,7 @@ public class datailscart extends AppCompatActivity {
                     descr.setText(itemPrice + " SR ");
                     sub_main_txt.setText(coursename);
                     main_txt.setText(itemName);
-                    matrialT.setText("Material type: "+materialtype);
+                    matrialT.setText("Material type: "+itemName);
                     uniname.setText("University:"+uni);
                     desc.setText("Description: "+Descr);
                     /*try {
