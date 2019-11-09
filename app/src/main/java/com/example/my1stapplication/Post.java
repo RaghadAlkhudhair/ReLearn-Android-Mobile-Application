@@ -8,33 +8,37 @@ public class Post implements java.io.Serializable {
     String materialtype;
     String price;
     String iban;
-
-    String phone;
+    String accountowner;
     String description;
-    String address;
-    String IBAN;
-    String ownername;
-    String bankname;
+    String phone,address,IBAN, username,bankname;
 
     public Post() {
     }
 
-    public Post(String postID,String materialname, String coursename, String uniname,String materialtype, String price, String description, String phone, String address, String IBAN, String ownername, String bankname  ) {
+    public Post(String postID,String materialname, String coursename, String uniname,String materialtype, String price, String description  ) {
         this.postID = postID;
         this.materialname = materialname ;
         this.coursename = coursename;
         this.uniname = uniname;
         this.materialtype = materialtype;
         this.price = price;
-
         this.description=description;
-        this.address=address;
-        this.phone=phone;
-        this.IBAN=IBAN;
-        this.ownername=ownername;
-        this.bankname=bankname;
     }
 
+    public Post(String postID,String materialname, String coursename, String uniname,String materialtype, String price, String description ,String phone,String address,String IBAN, String username, String bankname ) {
+        this.postID = postID;
+        this.materialname = materialname ;
+        this.coursename = coursename;
+        this.uniname = uniname;
+        this.materialtype = materialtype;
+        this.price = price;
+        this.description=description;
+        this.phone = phone;
+        this.address = address;
+        this.IBAN=IBAN;
+        this.username=username;
+        this.bankname=bankname;
+    }
     public String getPostID() {
         return postID;
     }
@@ -46,9 +50,9 @@ public class Post implements java.io.Serializable {
     public String getUniname() {
         return uniname;
     }
-    //public String getIban() {
-        //return iban;
-    //}
+    public String getIban() {
+        return iban;
+    }
 
     public String getCoursename() {
         return coursename;
@@ -66,60 +70,8 @@ public class Post implements java.io.Serializable {
         return description;
     }
 
-    public void setPostID(String postID) {
-        this.postID = postID;
-    }
-
-    public void setCoursename(String coursename) {
-        this.coursename = coursename;
-    }
-
-    public void setMaterialname(String materialname) {
-        this.materialname = materialname;
-    }
-
-    public String getIBAN() {
-        return IBAN;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
-
-    public void setMaterialtype(String materialtype) {
-        this.materialtype = materialtype;
-    }
-
-    public void setUniname(String uniname) {
-        this.uniname = uniname;
-    }
-
-    public String getOwnername() {
-        return ownername;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getAccountowner() {
+        return accountowner;
     }
 
     public String getBankname() {

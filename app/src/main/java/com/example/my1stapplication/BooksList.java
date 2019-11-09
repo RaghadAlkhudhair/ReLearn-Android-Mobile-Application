@@ -1,5 +1,6 @@
 package com.example.my1stapplication;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -204,11 +205,13 @@ public class BooksList extends AppCompatActivity implements NavigationView.OnNav
     protected void onStart() {
         super.onStart();
       final  postsList adapter= new postsList(BooksList.this,postslist );
-
+        listViewPosts.setAdapter(adapter);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listViewPosts.setAdapter(adapter);
+
+                postslist.clear();
+
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     Post post = postSnapshot.getValue(Post.class);
                     postslist.add(post);

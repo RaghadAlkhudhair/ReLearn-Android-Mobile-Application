@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class datailscart extends AppCompatActivity implements java.io.Serializable {
+public class datailscart extends AppCompatActivity {
     private FirebaseDatabase mItemsFirebaseDatabase;
     private DatabaseReference mItemsDatabaseReference;
     private FirebaseDatabase mFirebaseDatabase;
@@ -47,6 +47,7 @@ public class datailscart extends AppCompatActivity implements java.io.Serializab
         uniname =findViewById(R.id.uniname);
         descr=findViewById(R.id.descr);
         Button mainsitebtn = findViewById(R.id.mainsitebtn)      ;
+        Button fav = findViewById(R.id.addFav);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mCustomerRefernce = mFirebaseDatabase.getReference();
         final String itemName = getIntent().getStringExtra("itemName");
@@ -54,40 +55,48 @@ public class datailscart extends AppCompatActivity implements java.io.Serializab
         final String uni = getIntent().getStringExtra("uni");
         final String coursename = getIntent().getStringExtra("coursename");
         final String ID = getIntent().getStringExtra("ID");
+        final String materialtype = getIntent().getStringExtra("type");
+        final String Descr = getIntent().getStringExtra("desc");
         if(getIntent().getStringExtra("Hide").equals("true")){
             mainsitebtn.setVisibility(View.INVISIBLE);
+            fav.setVisibility(View.INVISIBLE);
+        }
+        if (getIntent().getStringExtra("Hide").equals("true FAV")){
+            fav.setVisibility(View.INVISIBLE);
         }
         mainsitebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-               DatabaseReference pp = FirebaseDatabase.getInstance().getReference("posts").child(ID);
-               // Post product=new Post(ID,matrialT.getText().toString(),coursename,uni,matrialT.getText().toString(),itemPrice,"Test");
-               // Log.e("Test",coursename);
-                mCustomerRefernce.child("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(ID).setValue(pp);
+                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,materialtype,itemPrice,"Test");
+                Log.e("Test",coursename);
+                mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(product);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
 
-
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Post product=new Post(ID,main_txt.getText().toString(),coursename,uni,materialtype,itemPrice,"Test");
+                Log.e("Test","Book added to Favorite");
+                mCustomerRefernce.child("Fav").child(MainActivity.userID).child(ID).setValue(product);
+                Toast.makeText(datailscart.this, "Added to Favorite", Toast.LENGTH_SHORT).show();
+            }
+        });
         FirebaseApp.initializeApp(this);
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("posts");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    desc.setVisibility(View.INVISIBLE);
-                    matrialT.setVisibility(View.INVISIBLE);
-
                     descr.setText(itemPrice + " SR ");
                     sub_main_txt.setText(coursename);
                     main_txt.setText(itemName);
-                    //matrialT.setText( "Material Type: "+materialtype);
+                    matrialT.setText("Material type: "+materialtype);
                     uniname.setText("University:"+uni);
-                    //desc.setText("Description: "+Descr);
+                    desc.setText("Description: "+Descr);
                     /*try {
                         List<String> posts = new ArrayList<>();
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
@@ -136,10 +145,11 @@ public class datailscart extends AppCompatActivity implements java.io.Serializab
 
 
                 }
+
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });

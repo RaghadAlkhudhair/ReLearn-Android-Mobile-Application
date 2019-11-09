@@ -96,6 +96,8 @@ public class postsList extends ArrayAdapter<Post> {
                 intent.putExtra("itemPrice",post.getPrice());
                 intent.putExtra("uni",post.getUniname());
                 intent.putExtra("ID",post.getPostID());
+                intent.putExtra("desc",post.getDescription());
+                intent.putExtra("type",post.getMaterialtype());
                 intent.putExtra("coursename",post.getCoursename());
                 intent.putExtra("Hide","false");
                 Log.e("test","inside detail");

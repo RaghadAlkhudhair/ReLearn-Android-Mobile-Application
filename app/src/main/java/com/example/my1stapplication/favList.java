@@ -1,5 +1,8 @@
 package com.example.my1stapplication;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +79,22 @@ public class favList extends ArrayAdapter<Post> {
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());
-
+        listviewitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), datailscart.class);
+                intent.putExtra("itemName",post.getMaterialname());
+                intent.putExtra("itemPrice",post.getPrice());
+                intent.putExtra("uni",post.getUniname());
+                intent.putExtra("ID",post.getPostID());
+                intent.putExtra("desc",post.getDescription());
+                intent.putExtra("type",post.getMaterialtype());
+                intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("Hide","true FAV");
+                Log.e("test","inside detail");
+                getContext().startActivity(intent);
+            }
+        });
         aCa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

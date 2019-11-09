@@ -1,6 +1,8 @@
 package com.example.my1stapplication;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +63,22 @@ public class cartAdapter extends ArrayAdapter<Post> {
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());
-
+        listviewitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), datailscart.class);
+                intent.putExtra("itemName",post.getMaterialname());
+                intent.putExtra("itemPrice",post.getPrice());
+                intent.putExtra("uni",post.getUniname());
+                intent.putExtra("ID",post.getPostID());
+                intent.putExtra("desc",post.getDescription());
+                intent.putExtra("type",post.getMaterialtype());
+                intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("Hide","true");
+                Log.e("test","inside detail");
+                getContext().startActivity(intent);
+            }
+        });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
