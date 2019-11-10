@@ -29,12 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="87dp"
-        android:layout_marginEnd="257dp"
-        android:layout_marginRight="257dp"
+        android:layout_toEndOf="@+id/textView23"
+        android:layout_toRightOf="@+id/textView23"
         android:text="TextView"
         android:textSize="14sp" />
 
@@ -83,18 +83,6 @@
         android:text="PRICE IN SR:"
         android:textColor="#5FB5C4"
         android:textSize="14sp" />
-
-    <ImageButton
-        android:id="@+id/ib_fav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginRight="42dp"
-        app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
     <TextView
         android:id="@+id/uniname"

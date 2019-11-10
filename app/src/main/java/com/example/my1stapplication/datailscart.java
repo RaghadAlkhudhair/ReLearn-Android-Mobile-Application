@@ -1,4 +1,5 @@
 package com.example.my1stapplication;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,38 +33,79 @@ public class datailscart extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     ModleCart cmObej;
     TextView main_txt,sub_main_txt,desc , matrialT,uniname , descr;
-
+    Button fav,mainsitebtn;
+    String itemName,itemPrice,uni,coursename,materialtype,Descr,ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.description);
-       // final Controller aController = (Controller) this.getApplicationContext();
+        // final Controller aController = (Controller) this.getApplicationContext();
 
         main_txt = findViewById(R.id.main_txt);
         sub_main_txt = findViewById(R.id.sub_main_txt);
-        desc=findViewById(R.id.desc);
-        matrialT =findViewById(R.id.matrialT);
-        uniname =findViewById(R.id.uniname);
-        descr=findViewById(R.id.descr);
-        Button mainsitebtn = findViewById(R.id.mainsitebtn)      ;
-        Button fav = findViewById(R.id.addFav);
+        desc = findViewById(R.id.desc);
+        matrialT = findViewById(R.id.matrialT);
+        uniname = findViewById(R.id.uniname);
+        descr = findViewById(R.id.descr);
+        mainsitebtn = findViewById(R.id.mainsitebtn);
+        fav = findViewById(R.id.addFav);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mCustomerRefernce = mFirebaseDatabase.getReference();
-        final String itemName = getIntent().getStringExtra("itemName");
-        final String itemPrice = getIntent().getStringExtra("itemPrice");
-        final String uni = getIntent().getStringExtra("uni");
-        final String coursename = getIntent().getStringExtra("coursename");
-        final String ID = getIntent().getStringExtra("ID");
-        final String materialtype = getIntent().getStringExtra("type");
-        final String Descr = getIntent().getStringExtra("desc");
-        if(getIntent().getStringExtra("Hide").equals("true")){
+        itemName = getIntent().getStringExtra("itemName");
+        itemPrice = getIntent().getStringExtra("itemPrice");
+        uni = getIntent().getStringExtra("uni");
+        coursename = getIntent().getStringExtra("coursename");
+        ID = getIntent().getStringExtra("ID");
+        materialtype = getIntent().getStringExtra("type");
+        Descr = getIntent().getStringExtra("desc");
+
+
+        if (getIntent().getStringExtra("Hide").equals("true")) {
             mainsitebtn.setVisibility(View.INVISIBLE);
             fav.setVisibility(View.INVISIBLE);
         }
-        if (getIntent().getStringExtra("Hide").equals("true FAV")){
+        if (getIntent().getStringExtra("Hide").equals("true FAV")) {
             fav.setVisibility(View.INVISIBLE);
         }
+        mCustomerRefernce.child("Fav").child(MainActivity.userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Log.e("Fav",postSnapshot.getKey());
+                    if (postSnapshot.getKey().equals(ID)) {
+                        Log.e("Fav", ID);
+                        fav.setText("Item is already on favorite");
+                        fav.setClickable(false);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        mCustomerRefernce.child("Cart").child(MainActivity.userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Log.e("Cart",postSnapshot.getKey());
+                    if (postSnapshot.getKey().equals(ID)) {
+                        Log.e("Cart", ID);
+                        mainsitebtn.setText("Item is already on cart");
+                        mainsitebtn.setClickable(false);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         mainsitebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

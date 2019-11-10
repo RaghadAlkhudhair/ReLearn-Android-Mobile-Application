@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import java.util.List;
 import android.app.Activity;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -25,10 +27,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.os.Build.ID;
+
 public class postsList extends ArrayAdapter<Post> {
     FirebaseDatabase mydatabase;
     DatabaseReference myRef,myRef2;
-
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mCustomerRefernce;
     private Activity context;
    public List<Post> postslist;
     private List<Post> total;
@@ -78,16 +83,33 @@ public class postsList extends ArrayAdapter<Post> {
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());
         ib_fav.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(final View v) {
-                ib_fav.setImageResource(R.drawable.ic_favorite_black_24dp);
+                ib_fav.setImageResource(R.drawable.fav_no);
                 mydatabase = FirebaseDatabase.getInstance();
                 myRef =mydatabase.getReference();
                 myRef.child("Fav").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(post.getPostID()).setValue(post);
+                Toast.makeText(getContext(), "Item added to favorite", Toast.LENGTH_SHORT).show();
             }
         });
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mCustomerRefernce = mFirebaseDatabase.getReference();
+        mCustomerRefernce.child("Fav").child(MainActivity.userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    if (postSnapshot.getKey().equals(post.getPostID())) {
+                        ib_fav.setImageResource(R.drawable.fav_no);
+                        break;
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         listviewitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
