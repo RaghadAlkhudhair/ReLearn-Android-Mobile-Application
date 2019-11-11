@@ -42,8 +42,8 @@
 
     <ListView
         android:id="@+id/listCartPosts"
-        android:layout_width="524dp"
-        android:layout_height="450dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:clickable="true"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"

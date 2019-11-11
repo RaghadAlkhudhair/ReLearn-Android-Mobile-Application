@@ -51,7 +51,7 @@ public class cartAdapter extends ArrayAdapter<Post> {
         if(listviewitem==null) {
             listviewitem = inflater.inflate(R.layout.cart_list, parent, false);
         }
-        ImageButton delete = (ImageButton) listviewitem.findViewById(R.id.removeFav);
+        ImageButton delete = (ImageButton) listviewitem.findViewById(R.id.delete);
         TextView materialname1 = (TextView) listviewitem.findViewById(R.id.materialname);
         TextView coursename1 = (TextView) listviewitem.findViewById(R.id.coursename);
         TextView uniname1 = (TextView) listviewitem.findViewById(R.id.uniname);

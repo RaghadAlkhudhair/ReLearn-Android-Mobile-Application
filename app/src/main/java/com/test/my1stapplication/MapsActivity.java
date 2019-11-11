@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.example.my1stapplication.ActivityLogin;
+import com.example.my1stapplication.BooksList;
 import com.example.my1stapplication.MainActivity;
 import com.example.my1stapplication.R;
 
@@ -83,7 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent I = new Intent(MapsActivity.this, ActivityLogin.class);
+                Intent I = new Intent(MapsActivity.this, BooksList.class);
                 startActivity(I);
             }
         });

@@ -136,7 +136,7 @@ public class datailscart extends AppCompatActivity {
                     descr.setText(itemPrice + " SR ");
                     sub_main_txt.setText(coursename);
                     main_txt.setText(itemName);
-                    matrialT.setText("Material type: "+itemName);
+                    matrialT.setText("Material type: "+materialtype);
                     uniname.setText("University:"+uni);
                     desc.setText("Description: "+Descr);
                     /*try {

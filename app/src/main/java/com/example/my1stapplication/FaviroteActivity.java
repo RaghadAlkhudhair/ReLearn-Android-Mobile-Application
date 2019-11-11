@@ -3,7 +3,10 @@ package com.example.my1stapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.my1stapplication.favList;
@@ -24,6 +27,7 @@ public class FaviroteActivity extends AppCompatActivity {
     DatabaseReference myRef,myRef2;
     List<Post> myarray = new ArrayList<>();
     ListView lv_fav;
+    Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,15 @@ public class FaviroteActivity extends AppCompatActivity {
         myRef2 = mydatabase.getReference("Fav").child(MainActivity.userID);
         final favList adapter= new favList(FaviroteActivity.this,myarray );
         lv_fav = (ListView)findViewById(R.id.lv_fav);
+        b=(Button)  findViewById(R.id.cancel_);
+
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToHome();
+            }
+        });
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -63,5 +76,13 @@ public class FaviroteActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+
+    public void moveToHome(){
+
+        Intent intent = new Intent(FaviroteActivity.this, BooksList.class);
+        startActivity(intent);
     }
 }

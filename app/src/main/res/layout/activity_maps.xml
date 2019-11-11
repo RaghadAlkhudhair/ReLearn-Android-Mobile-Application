@@ -28,7 +28,7 @@
         android:layout_alignParentEnd="true"
         android:padding="8dp"
         android:layout_margin="5dp"
-        android:text="SKIP"
+        android:text="Go"
         android:background="@drawable/btn_shape_round"
         android:textColor="#ffffff" />
 

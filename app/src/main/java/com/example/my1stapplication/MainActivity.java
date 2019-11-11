@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v==mRegisterbtn){
             UserRegister();
-            startActivity(new Intent(MainActivity.this, MapsActivity.class));
+        //    startActivity(new Intent(MainActivity.this, MapsActivity.class));
         }else if (v== mLoginPageBack){
             startActivity(new Intent(MainActivity.this,ActivityLogin.class));
             Log.e("TAG", "Message");
@@ -117,6 +117,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
              Toast.makeText(MainActivity.this,"phone number must not be more than 10 digits",Toast.LENGTH_SHORT).show();
                 return;}
+        }
+        else if( !(TextUtils.isEmpty(IBAN.getText().toString())) && (IBAN.getText().toString().charAt(0)!='S'||IBAN.getText().toString().charAt(1)!='A' || IBAN.getText().toString().length()!=25)){
+            Toast.makeText(MainActivity.this,"Check the IBAN", Toast.LENGTH_SHORT).show();
+            IBAN.setError("IBAN should start with SA and digits equal 25");
+            return;
         }
 
 
