@@ -48,6 +48,7 @@ usersref=FirebaseDatabase.getInstance().getReference("Users");
         final String materialtype= getIntent().getStringExtra("materialtype");
         final String description= getIntent().getStringExtra("description");
         final String price= getIntent().getStringExtra("price");
+        final String id = getIntent().getStringExtra("userID");
 
 username = (EditText) findViewById(R.id.editText);
         bankname = (EditText) findViewById(R.id.editText2);
@@ -122,14 +123,15 @@ confirm.setOnClickListener(new View.OnClickListener() {
             }
             else{
 
-            String id = db.push().getKey();
+            String id1 = db.push().getKey();
             String s1=phone.getText().toString().trim();
             String s2= address.getText().toString().trim();
             String s3=IBAN.getText().toString().trim();
             String s4=username.getText().toString().trim();
             String s5=bankname.getText().toString().trim();
-            Post p = new Post(id, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5);
-postsref.child(id).setValue(p);
+            Post p = new Post(id1, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5,MainActivity.userID);
+            Log.e("user id post",p.getUserID());
+            postsref.child(id1).setValue(p);
             Toast.makeText(ConfrimAddMaterial.this,"Material added successfully", Toast.LENGTH_LONG).show();
             moveToHome();
         }}

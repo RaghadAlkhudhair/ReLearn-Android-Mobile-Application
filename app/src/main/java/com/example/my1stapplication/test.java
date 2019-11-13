@@ -19,8 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class test extends AppCompatActivity {
-
-
     EditText materialname, coursename, description, IBAN, owner,bankname, price;
     Button buttonDone;
     Button Cancel;
@@ -92,7 +90,7 @@ public void addPost(){
 
     String spinner1= spinner.getSelectedItem().toString().trim();
 
-
+    String id = MainActivity.userID;
 
 
 
@@ -113,6 +111,7 @@ public void addPost(){
         n.putExtra("materialtype",spinner1 );
         n.putExtra("price",price1 );
         n.putExtra("description",description1 );
+        n.putExtra("userID",id );
         startActivity(n);
 
 

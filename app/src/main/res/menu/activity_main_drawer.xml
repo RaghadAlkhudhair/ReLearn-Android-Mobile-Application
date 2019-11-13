@@ -12,5 +12,9 @@
             android:id="@+id/click_profile"
             android:icon="@drawable/profile_tiffany"
             android:title="Profile" />
+        <item
+            android:id="@+id/click_myPosts"
+            android:icon="@drawable/my_posts"
+            android:title="My Posts" />
 
 </menu>

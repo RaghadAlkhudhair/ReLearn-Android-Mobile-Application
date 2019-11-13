@@ -1,42 +1,48 @@
 package com.example.my1stapplication;
-import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.sql.Array;
 import java.util.List;
 import android.app.Activity;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.my1stapplication.Post;
+import com.example.my1stapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class cartAdapter extends ArrayAdapter<Post> {
-    DatabaseReference mDatabaseReference ;
+public class mypostslist extends ArrayAdapter<Post> {
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private Activity context;
     public List<Post> postslist;
     private List<Post> total;
-    private LayoutInflater inflater;
-    private Context context;
+
+    DatabaseReference mDatabaseReference,myref ;
 
 
-    public cartAdapter(Activity context, List<Post> postslist){
-        super(context, R.layout.cart_list, postslist );
+    public mypostslist(Activity context, List<Post> postslist){
+        super(context, R.layout.favlist, postslist );
         this.context=context;
         this.postslist=postslist;
         this.total=new ArrayList<Post>();
-        this.inflater = LayoutInflater.from(this.context);
+
         //this.total.addAll(this.postslist);
     }
 
@@ -47,47 +53,61 @@ public class cartAdapter extends ArrayAdapter<Post> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View listviewitem, @NonNull ViewGroup parent) {
-        if(listviewitem==null) {
-            listviewitem = inflater.inflate(R.layout.cart_list, parent, false);
-        }
-        ImageButton delete = (ImageButton) listviewitem.findViewById(R.id.deleteCart);
+    public Activity getContext() {
+        return context;
+    }
+
+
+
+
+    @NonNull
+    @Override
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = context.getLayoutInflater();
+
+        View listviewitem= inflater.inflate(R.layout.activity_my_posts,null, true);
         TextView materialname1 = (TextView) listviewitem.findViewById(R.id.materialname);
         TextView coursename1 = (TextView) listviewitem.findViewById(R.id.coursename);
         TextView uniname1 = (TextView) listviewitem.findViewById(R.id.uniname);
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
-
+        ImageButton aUa = (ImageButton) listviewitem.findViewById(R.id.addCart);
+        ImageButton aDa = (ImageButton) listviewitem.findViewById(R.id.removePost);
         final Post post = postslist.get(position);
-        mDatabaseReference= FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         materialname1.setText(post.getMaterialname());
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());
-        listviewitem.setOnClickListener(new View.OnClickListener() {
+
+        aUa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), datailscart.class);
-                intent.putExtra("itemName",post.getMaterialname());
-                intent.putExtra("itemPrice",post.getPrice());
-                intent.putExtra("uni",post.getUniname());
-                intent.putExtra("ID",post.getPostID());
-                intent.putExtra("desc",post.getDescription());
-                intent.putExtra("type",post.getMaterialtype());
-                intent.putExtra("coursename",post.getCoursename());
-                intent.putExtra("Hide","true");
-                Log.e("test","inside detail");
-                getContext().startActivity(intent);
-            }
-        });
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDatabaseReference.child(post.getPostID()).removeValue();
-                remove(post);
-                Toast.makeText(getContext(), "Books has been removed", Toast.LENGTH_SHORT).show();
+                Intent n= new Intent (getContext(), UPmyposts.class);
+                n.putExtra("materialname",post.getMaterialname());
+                n.putExtra("coursename",post.getCoursename() );
+                n.putExtra("uniname",post.getUniname() );
+                n.putExtra("materialtype",post.getMaterialtype() );
+                n.putExtra("price",post.getPrice() );
+                n.putExtra("description",post.getDescription() );
+                n.putExtra("postID",post.getPostID());
+                n.putExtra("bankname",post.getBankname());
+                n.putExtra("phone",post.getPhone());
+                n.putExtra("address",post.getAddress());
+                n.putExtra("IBAN",post.getIBAN());
+                n.putExtra("username",post.getUsername());
+                getContext().finish();
+                getContext().startActivity(n);
             }
         });
 
+        aDa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myref=FirebaseDatabase.getInstance().getReference("posts");
+                myref.child(post.getPostID()).removeValue();
+                remove(post);
+                Toast.makeText(getContext(), "Post is removed successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
         if(total.isEmpty())
             total.addAll(postslist);
 
@@ -103,14 +123,14 @@ public class cartAdapter extends ArrayAdapter<Post> {
     public void filter(String charText) {
         charText = charText.toLowerCase();
         // total.addAll(postslist);
-        //List<post> all =new ArrayList<post>();
+        //List<Post> all =new ArrayList<Post>();
         // all.addAll(postslist);
 
         postslist.clear();
         //postslist.addAll(all);
 
 
-//post p=new post("122","s","s","s","s","s","s");
+//Post p=new Post("122","s","s","s","s","s","s");
         if (charText.length() == 0) {
             postslist.addAll(total);
         } else {
@@ -125,13 +145,4 @@ public class cartAdapter extends ArrayAdapter<Post> {
         }
 
     }}
-
-
-
-
-
-
-
-
-
 

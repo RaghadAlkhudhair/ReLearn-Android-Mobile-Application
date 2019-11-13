@@ -62,6 +62,8 @@
             android:name=".accountInfo"
             android:theme="@style/AppTheme.ProfileTheme" />
         <activity android:name=".FaviroteActivity"></activity>
+        <activity android:name=".UPmyposts" />
+        <activity android:name=".myposts" />
     </application>
 
 </manifest>
