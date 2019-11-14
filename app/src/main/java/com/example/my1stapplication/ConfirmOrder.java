@@ -95,6 +95,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
 
 if(phoneNo.getText().toString().length()==10 && !phoneNo.getText().toString().contains(".") )
                     processPayment();
+
 else{
     Toast.makeText(getApplicationContext(), "please ensure phone number is valid", Toast.LENGTH_LONG).show();
 }
@@ -143,6 +144,7 @@ else{
         for(int i=1;i<=cart.size();i++){
             Post pp= (Post) cart.get("post".concat(String.valueOf(i)));
             postsref.child(pp.postID).removeValue();
+
 
         }
 

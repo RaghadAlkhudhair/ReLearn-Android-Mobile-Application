@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrders extends AppCompatActivity {
-    ListView listViewOrders;
+    ListView listViewMyOrders;
     DatabaseReference ordersref;
     List<Order> myordersList;
     @Override
@@ -29,7 +29,7 @@ public class MyOrders extends AppCompatActivity {
 
 
         ordersref= FirebaseDatabase.getInstance().getReference("Orders");
-        listViewOrders=(ListView)findViewById(R.id.listViewMyOrders);
+        listViewMyOrders=(ListView)findViewById(R.id.listViewMyOrders);
         myordersList=new ArrayList<>();
 
 
@@ -53,8 +53,8 @@ public class MyOrders extends AppCompatActivity {
                     myordersList.add(o);
 
                 }
-                OrdersList adapter= new OrdersList(MyOrders.this,myordersList);
-                listViewOrders.setAdapter(adapter);
+                MyOrdersList adapter= new MyOrdersList(MyOrders.this,myordersList);
+                listViewMyOrders.setAdapter(adapter);
 
             }
 

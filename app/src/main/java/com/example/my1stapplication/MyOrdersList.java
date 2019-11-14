@@ -32,11 +32,10 @@ public class MyOrdersList extends ArrayAdapter<Order> {
 
     private Activity context;
     private List<Order> ordersList;
-    CheckBox rePaid, shipped;
     DatabaseReference ordersref;
 
     public MyOrdersList(Activity context, List<Order> ordersList){
-        super(context, R.layout.orders,ordersList);
+        super(context, R.layout.my_orders_list,ordersList);
         this.context=context;
         this.ordersList=ordersList;
         ordersref=FirebaseDatabase.getInstance().getReference("Orders");
@@ -70,7 +69,7 @@ public class MyOrdersList extends ArrayAdapter<Order> {
             if(order.getShipped().equals("true"))
             t8.setText("Shipped");
             else
-                t8.setText("Waiting for shipment arrangment");
+                t8.setText("Waiting for shipment arrangement");
 
 
         return listViewItem;
