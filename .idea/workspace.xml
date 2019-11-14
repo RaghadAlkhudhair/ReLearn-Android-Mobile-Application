@@ -11,10 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b0ecdbc-b880-417e-afe3-59c96bbef82a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/ConfirmOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/ConfirmOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrdersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrdersList.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/app/build/" />
@@ -46,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrders.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+            <state relative-caret-position="78">
+              <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -73,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/OrdersList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="510">
               <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
             </state>
           </provider>
@@ -174,13 +178,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/my_orders_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_page.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_my_orders.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrders.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/accountInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/BooksList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/ConfirmOrder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrdersList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/OrdersList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrders.java" />
       </list>
     </option>
   </component>
@@ -409,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573711087597</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="removing checkbox from my orders">
+      <created>1573714230654</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573714230654</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -446,7 +457,8 @@
     <MESSAGE value="Modifications" />
     <MESSAGE value="Update Profile after testing" />
     <MESSAGE value="View My Orders" />
-    <option name="LAST_COMMIT_MESSAGE" value="View My Orders" />
+    <MESSAGE value="removing checkbox from my orders" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing checkbox from my orders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -793,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrdersList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
@@ -809,8 +814,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/OrdersList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="510">
           <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/my1stapplication/MyOrders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
         </state>
       </provider>
     </entry>
