@@ -177,6 +177,12 @@ public class BooksList extends AppCompatActivity implements NavigationView.OnNav
                Intent inte = new Intent(this,myposts.class);
                startActivity(inte);
            }
+
+           if (id == R.id.click_myOrders) {
+               Intent inte = new Intent(this,MyOrders.class);
+               startActivity(inte);
+           }
+
            return true;
        }
     @Override

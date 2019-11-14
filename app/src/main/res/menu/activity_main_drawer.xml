@@ -17,4 +17,9 @@
             android:icon="@drawable/my_posts"
             android:title="My Posts" />
 
+        <item
+            android:id="@+id/click_myOrders"
+            android:icon="@drawable/my_posts"
+            android:title="My Orders" />
+
 </menu>
