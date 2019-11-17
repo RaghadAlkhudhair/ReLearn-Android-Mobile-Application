@@ -103,35 +103,62 @@ public class accountInfo extends AppCompatActivity{
             // Get auth credentials from the user for re-authentication
             // Prompt the user to re-provide their sign-in credentials
 
-                     if(!IBAN.getText().toString().isEmpty() && (IBAN.getText().toString().charAt(0)!='S'||IBAN.getText().toString().charAt(1)!='A')){
+            if (phone.getText().toString().isEmpty()) {
+                         if (IBAN.getText().toString().isEmpty()) {
+                             Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                             IBAN.setError("IBAN field should not be empty");
+                             Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                             phone.setError("Phone field should not be empty");
+                         }else{
+                             Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                             phone.setError("Phone field should not be empty");
+                         }
+            }
+            else if (IBAN.getText().toString().isEmpty()) {
+                         if (phone.getText().toString().isEmpty()) {
+                             Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                             IBAN.setError("IBAN field should not be empty");
+                             Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                             phone.setError("Phone field should not be empty");
+                         } else {
+                             Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                             IBAN.setError("IBAN field should not be empty");
+                         }
+                     }
+            else if(!IBAN.getText().toString().isEmpty() && (IBAN.getText().toString().charAt(0)!='S'||IBAN.getText().toString().charAt(1)!='A')){
                         Toast.makeText(accountInfo.this,"Check the IBAN", Toast.LENGTH_SHORT).show();
                         IBAN.setError("IBAN should start with SA");
                     } else
                         if(!phone.getText().toString().isEmpty() && (phone.getText().toString().charAt(0)!='0'||phone.getText().toString().charAt(1)!='5')) {
                          Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
                          phone.setError("Phone number format is wrong");
-                     } else
-                         if( phone.length()==10) {
-                             userRef.setBank(bank.getText().toString());
-                             userRef.setIban(IBAN.getText().toString());
-                             userRef.setPhone(phone.getText().toString());
-                             userRef.setName(name.getText().toString());
-                             userRef.setAddr(address.getText().toString());
-                             userRef.setOwner(owner.getText().toString());
-                             userRef.setEmail(emailID.getText().toString());
-                             db.setValue(userRef);
-                             Toast.makeText(accountInfo.this, "Your account's information has been updated", Toast.LENGTH_SHORT).show();
-            } else {
+                     }  else {
                              if (    !IBAN.getText().toString().isEmpty() &&    (IBAN.getText().toString().length() != 25)) {
-                                 Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
-                                 IBAN.setError("IBAN should be 25 characters and starting with SA");
+                                 if (!phone.getText().toString().isEmpty() && phone.length() != 10) {
+                                     Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                                     phone.setError("Phone should be 10 characters");
+                                        Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                                         IBAN.setError("IBAN should be 25 characters and starting with SA");
+                                     } else{
+                                         Toast.makeText(accountInfo.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                                         IBAN.setError("IBAN should be 25 characters and starting with SA");
+                                     }
                              } else if (!phone.getText().toString().isEmpty() && phone.length() != 10) {
                                  Toast.makeText(accountInfo.this, "Check the phone", Toast.LENGTH_SHORT).show();
                                  phone.setError("Phone should be 10 characters");
+                             } else {
+                                 userRef.setBank(bank.getText().toString());
+                                 userRef.setIban(IBAN.getText().toString());
+                                 userRef.setPhone(phone.getText().toString());
+                                 userRef.setName(name.getText().toString());
+                                 userRef.setAddr(address.getText().toString());
+                                 userRef.setOwner(owner.getText().toString());
+                                 userRef.setEmail(emailID.getText().toString());
+                                 db.setValue(userRef);
+                                 Toast.makeText(accountInfo.this, "Your account's information has been updated", Toast.LENGTH_SHORT).show();
                              }
                          }
-
         }
-        }
+}
 
 
