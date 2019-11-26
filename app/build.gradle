@@ -52,7 +52,6 @@ dependencies {
     implementation 'androidx.cardview:cardview'
     implementation 'androidx.appcompat:appcompat'
 
-
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

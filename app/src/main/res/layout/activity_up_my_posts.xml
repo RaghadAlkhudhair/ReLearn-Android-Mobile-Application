@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cancel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.my1stapplication.test">
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="173dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uniname"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="31dp"
+        android:layout_toEndOf="@+id/textView15"
+        android:layout_toRightOf="@+id/textView15"
+        android:entries="@array/types" />
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="367dp"
+        android:layout_height="148dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="2dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/toolbar_logo" />
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:hint="Selling Price"
+        android:inputType="numberDecimal"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/materialname"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:hint="Material Name"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Material Description"
+        android:inputType="textLongMessage|none"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/coursename"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialname"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Related Course/s"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:text="Material Type:"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="103dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/coursename"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="41dp"
+        android:text="University:"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="103dp" />
+
+    <Spinner
+        android:id="@+id/uniname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/coursename"
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="41dp"
+        android:layout_toEndOf="@+id/textView14"
+        android:layout_toRightOf="@+id/textView14"
+        android:entries="@array/uni" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="128dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/price"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="UPDATE "
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <Button
+        android:id="@+id/cancel_"
+        android:layout_width="127dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/price"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Cancel "
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+
+</RelativeLayout>
