@@ -81,7 +81,7 @@ public class mypostslist extends ArrayAdapter<Post> {
         aUa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent n= new Intent (getContext(), myposts.class);
+                Intent n= new Intent (getContext(), UPmyposts.class);
                 n.putExtra("materialname",post.getMaterialname());
                 n.putExtra("coursename",post.getCoursename() );
                 n.putExtra("uniname",post.getUniname() );
