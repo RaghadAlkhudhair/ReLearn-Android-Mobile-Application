@@ -78,7 +78,7 @@ public class UPmyposts extends AppCompatActivity {
             public void onClick(View v) {
                 alertDialog.setMessage("Update is under processing");
                 alertDialog.show();
-                Post product=new Post(id,materialname.getText().toString(),coursename.getText().toString(),uniname.getSelectedItem().toString(),spinner.getSelectedItem().toString(),price.getText().toString(),description.getText().toString(),phone,address,IBAN,username,bankName1,MainActivity.userID,URL);
+                Post product=new Post(id,materialname.getText().toString(),coursename.getText().toString(),uniname.getSelectedItem().toString(),spinner.getSelectedItem().toString(),price.getText().toString(),description.getText().toString(),phone,address,IBAN,username,bankName1,MainActivity.userID);
                 db.child(id).setValue(product);
                 alertDialog.dismiss();
                 finish();
