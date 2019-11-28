@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 import android.app.Activity;
@@ -20,6 +21,7 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,6 +80,8 @@ public class postsList extends ArrayAdapter<Post> {
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
         final ImageButton ib_fav = (ImageButton)listviewitem.findViewById(R.id.ib_fav);
         final Post post = postslist.get(position);
+        ImageView photoImageView = (ImageView) listviewitem.findViewById(R.id.imageViewPost);
+        Glide.with(photoImageView.getContext()).load(post.getUrl()).into(photoImageView);
         materialname1.setText(post.getMaterialname());
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
@@ -121,6 +125,13 @@ public class postsList extends ArrayAdapter<Post> {
                 intent.putExtra("desc",post.getDescription());
                 intent.putExtra("type",post.getMaterialtype());
                 intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("IBAN",post.getIBAN());
+                intent.putExtra("phone",post.getPhone());
+                intent.putExtra("address",post.getAddress());
+                intent.putExtra("username",post.getUsername());
+                intent.putExtra("bankname",post.getBankname());
+                intent.putExtra("userID",post.getUserID());
+                intent.putExtra("URL",post.getUrl());
                 intent.putExtra("Hide","false");
                 Log.e("test","inside detail");
                 getContext().startActivity(intent);

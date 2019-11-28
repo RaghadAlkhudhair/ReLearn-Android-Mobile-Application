@@ -14,12 +14,12 @@
             android:title="Profile" />
         <item
             android:id="@+id/click_myPosts"
-            android:icon="@drawable/my_posts"
-            android:title="My Posts" />
+            android:icon="@drawable/books"
+            android:title="My Materials" />
 
         <item
             android:id="@+id/click_myOrders"
-            android:icon="@drawable/my_posts"
+            android:icon="@drawable/orders"
             android:title="My Orders" />
 
 </menu>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.sql.Array;
@@ -21,6 +22,7 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.my1stapplication.Post;
 import com.example.my1stapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,7 +74,10 @@ public class favList extends ArrayAdapter<Post> {
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
         ImageButton aCa = (ImageButton) listviewitem.findViewById(R.id.addCart);
         ImageButton aDa = (ImageButton) listviewitem.findViewById(R.id.removeFav);
+        ImageView photoImageView  = (ImageView) listviewitem.findViewById(R.id.imageViewPost);
         final Post post = postslist.get(position);
+
+        Glide.with(photoImageView.getContext()).load(post.getUrl()).into(photoImageView);
         myref = FirebaseDatabase.getInstance().getReference("Fav").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         mDatabaseReference= FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         materialname1.setText(post.getMaterialname());
@@ -90,6 +95,14 @@ public class favList extends ArrayAdapter<Post> {
                 intent.putExtra("desc",post.getDescription());
                 intent.putExtra("type",post.getMaterialtype());
                 intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("IBAN",post.getIBAN());
+                intent.putExtra("phone",post.getPhone());
+                intent.putExtra("address",post.getAddress());
+                intent.putExtra("username",post.getUsername());
+                intent.putExtra("bankname",post.getBankname());
+                intent.putExtra("userID",post.getUserID());
+                intent.putExtra("URL",post.getUrl());
+                Log.e("test fav img", post.getUrl());
                 intent.putExtra("Hide","true FAV");
                 Log.e("test","inside detail");
                 getContext().startActivity(intent);

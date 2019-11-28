@@ -49,15 +49,16 @@ usersref=FirebaseDatabase.getInstance().getReference("Users");
         final String description= getIntent().getStringExtra("description");
         final String price= getIntent().getStringExtra("price");
         final String id = getIntent().getStringExtra("userID");
+        final String URL = getIntent().getStringExtra("URL");
 
-username = (EditText) findViewById(R.id.editText);
+        username = (EditText) findViewById(R.id.editText);
         bankname = (EditText) findViewById(R.id.editText2);
         IBAN = (EditText) findViewById(R.id.editText3);
         address = (EditText) findViewById(R.id.editText4);
         phone = (EditText) findViewById(R.id.editText5);
         confirm=(Button)findViewById(R.id.confirm);
         cancel=(Button)findViewById(R.id.button2);
-       final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         db = FirebaseDatabase.getInstance().getReference("Users").child(userID);
 //String userID= FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -129,7 +130,7 @@ confirm.setOnClickListener(new View.OnClickListener() {
             String s3=IBAN.getText().toString().trim();
             String s4=username.getText().toString().trim();
             String s5=bankname.getText().toString().trim();
-            Post p = new Post(id1, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5,MainActivity.userID);
+            Post p = new Post(id1, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5,MainActivity.userID,URL);
             Log.e("user id post",p.getUserID());
             postsref.child(id1).setValue(p);
             Toast.makeText(ConfrimAddMaterial.this,"Material added successfully", Toast.LENGTH_LONG).show();

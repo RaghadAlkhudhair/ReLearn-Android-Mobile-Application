@@ -35,7 +35,7 @@
 
     <EditText
         android:id="@+id/price"
-        android:layout_width="305dp"
+        android:layout_width="137dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/description"
         android:layout_alignParentStart="true"
@@ -109,6 +109,21 @@
         tools:layout_editor_absoluteY="103dp" />
 
     <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="41dp"
+        android:layout_toEndOf="@+id/price"
+        android:layout_toRightOf="@+id/price"
+        android:text="Upload Photo:"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="103dp" />
+
+    <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,10 +154,10 @@
         android:id="@+id/button6"
         android:layout_width="128dp"
         android:layout_height="37dp"
-        android:layout_below="@+id/price"
+        android:layout_below="@+id/textView13"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="62dp"
         android:layout_marginRight="62dp"
         android:background="@drawable/btn_shape_round"
@@ -162,6 +177,19 @@
         android:background="@drawable/btn_shape_round"
         android:text="Cancel "
         android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <ImageButton
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="39dp"
+        android:layout_toEndOf="@+id/textView13"
+        android:layout_toRightOf="@+id/textView13"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/upload" />
 
 
 </RelativeLayout>

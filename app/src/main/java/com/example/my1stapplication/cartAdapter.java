@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 import android.app.Activity;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,6 +60,13 @@ public class cartAdapter extends ArrayAdapter<Post> {
         TextView price1 = (TextView) listviewitem.findViewById(R.id.price);
 
         final Post post = postslist.get(position);
+        ImageView photoImageView = (ImageView) listviewitem.findViewById(R.id.imageViewPost);
+        if(post.getUrl() == null){
+
+        }else{
+            Log.e("test cart img", post.getUrl());
+        }
+        Glide.with(photoImageView.getContext()).load(post.getUrl()).into(photoImageView);
         mDatabaseReference= FirebaseDatabase.getInstance().getReference("Cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         materialname1.setText(post.getMaterialname());
         coursename1.setText(post.getCoursename());
@@ -74,6 +83,13 @@ public class cartAdapter extends ArrayAdapter<Post> {
                 intent.putExtra("desc",post.getDescription());
                 intent.putExtra("type",post.getMaterialtype());
                 intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("phone",post.getPhone());
+                intent.putExtra("address",post.getAddress());
+                intent.putExtra("IBAN",post.getIBAN());
+                intent.putExtra("username",post.getUsername());
+                intent.putExtra("bankname",post.getBankname());
+                intent.putExtra("userID",post.getUserID());
+                intent.putExtra("URL",post.getUrl());
                 intent.putExtra("Hide","true");
                 Log.e("test","inside detail");
                 getContext().startActivity(intent);

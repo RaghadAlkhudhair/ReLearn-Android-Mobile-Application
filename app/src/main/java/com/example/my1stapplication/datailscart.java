@@ -1,16 +1,28 @@
 package com.example.my1stapplication;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,10 +44,10 @@ public class datailscart extends AppCompatActivity {
     private DatabaseReference mCustomerRefernce;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     ModleCart cmObej;
+    ImageView photoImageView;
     TextView main_txt,sub_main_txt,desc , matrialT,uniname , descr;
     Button fav,mainsitebtn;
     String itemName,itemPrice,uni,coursename,materialtype,Descr,ID;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +71,22 @@ public class datailscart extends AppCompatActivity {
         ID = getIntent().getStringExtra("ID");
         materialtype = getIntent().getStringExtra("type");
         Descr = getIntent().getStringExtra("desc");
-
-
+        final String phone = getIntent().getStringExtra("phone");
+        final String address = getIntent().getStringExtra("address");
+        final String IBAN = getIntent().getStringExtra("IBAN");
+        final String username = getIntent().getStringExtra("username");
+        final String bnkName = getIntent().getStringExtra("bankname");
+        final String usrID= getIntent().getStringExtra("userID");
+        final String url = getIntent().getStringExtra("URL");
+        photoImageView = (ImageView) findViewById(R.id.imageViewPost);
+        Glide.with(photoImageView.getContext()).load(url).into(photoImageView);
+        photoImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        photoImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageViewPopUpHelper.enablePopUpOnClick(datailscart.this, photoImageView, photoImageView.getDrawable());
+            }
+        });
         if (getIntent().getStringExtra("Hide").equals("true")) {
             mainsitebtn.setVisibility(View.INVISIBLE);
             fav.setVisibility(View.INVISIBLE);
@@ -109,8 +135,8 @@ public class datailscart extends AppCompatActivity {
         mainsitebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr);
-                Log.e("Test",coursename);
+                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr,phone,address,IBAN,username,bnkName,usrID,url);
+                Log.e("Test Cart",url);
                 mCustomerRefernce.child("Cart").child(MainActivity.userID).child(ID).setValue(product);
                 Toast.makeText(datailscart.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
@@ -119,8 +145,8 @@ public class datailscart extends AppCompatActivity {
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr);
-                Log.e("Test","Book added to Favorite");
+                Post product=new Post(ID,itemName,coursename,uni,materialtype,itemPrice,Descr,phone,address,IBAN,username,bnkName,usrID,url);
+                Log.e("Test Favorite",url);
                 mCustomerRefernce.child("Fav").child(MainActivity.userID).child(ID).setValue(product);
                 Toast.makeText(datailscart.this, "Added to Favorite", Toast.LENGTH_SHORT).show();
             }
@@ -195,7 +221,21 @@ public class datailscart extends AppCompatActivity {
 
             }
         });
-
     }
 
+    public class UIutils {
+
+        private Activity mActivity;
+
+        public UIutils(Activity activity){
+            mActivity = activity;
+        }
+
+        public void showPhoto(Uri photoUri){
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setDataAndType(photoUri, "image/*");
+            mActivity.startActivity(intent);
+        }
+    }
 }

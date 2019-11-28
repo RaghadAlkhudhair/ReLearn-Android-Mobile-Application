@@ -44,12 +44,16 @@ public class myposts extends AppCompatActivity {
                     Log.e("test user phone",post.getPhone());
                     Log.e("test user IBAN",post.getIBAN());
                     Log.e("test user address",post.getAddress());
+                    if(post.getUrl()==null){
+
+                    }else {
+                        Log.e("test post photo url", post.getUrl());
+                    }
                     if(post.getUserID()==null){
 
                     }else {
                         if (post.getUserID().equals(MainActivity.userID)) {
                             myarray.add(post);
-
                             adapter.notifyDataSetChanged();
                         }
                     }

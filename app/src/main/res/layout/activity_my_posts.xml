@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="10dp"
@@ -24,58 +25,16 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/coursename"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/uniname"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/textView23"
-        android:layout_toRightOf="@+id/textView23"
-        android:text="TextView"
-        android:textSize="14sp" />
-
-    <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="61dp"
+        android:layout_toEndOf="@+id/imageViewPost"
+        android:layout_toRightOf="@+id/imageViewPost"
         android:text="UNIVERSITY:"
-        android:textColor="#5FB5C4"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView22"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="8dp"
-        android:text="COURSE:"
-        android:textColor="#5FB5C4"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView23"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="10dp"
-        android:text="PRICE IN SR:"
         android:textColor="#5FB5C4"
         android:textSize="14sp" />
 
@@ -92,21 +51,63 @@
         android:text="TextView" />
 
     <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView22"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/imageViewPost"
+        android:layout_toRightOf="@+id/imageViewPost"
+        android:text="COURSE:"
+        android:textColor="#5FB5C4"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/coursename"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uniname"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/textView23"
+        android:layout_toRightOf="@+id/textView23"
+        android:text="TextView"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView23"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/imageViewPost"
+        android:layout_toRightOf="@+id/imageViewPost"
+        android:text="PRICE IN SR:"
+        android:textColor="#5FB5C4"
+        android:textSize="14sp" />
+
+    <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/coursename"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/textView24"
         android:layout_toRightOf="@+id/textView24"
         android:text="TextView" />
 
     <ImageButton
         android:id="@+id/addCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -114,7 +115,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="18dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/my_posts" />
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/edit_info" />
 
     <ImageButton
         android:id="@+id/removePost"
@@ -128,5 +130,17 @@
         android:layout_marginRight="15dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/delete_tiffany" />
+
+    <ImageView
+        android:id="@+id/imageViewPost"
+        android:layout_width="80dp"
+        android:layout_height="72dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/update"/>
 
 </RelativeLayout>

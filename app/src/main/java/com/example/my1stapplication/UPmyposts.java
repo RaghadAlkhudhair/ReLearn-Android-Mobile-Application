@@ -78,7 +78,7 @@ public class UPmyposts extends AppCompatActivity {
             public void onClick(View v) {
                 alertDialog.setMessage("Update is under processing");
                 alertDialog.show();
-                Post product=new Post(id,materialname.getText().toString(),coursename.getText().toString(),uniname.getSelectedItem().toString(),spinner.getSelectedItem().toString(),price.getText().toString(),description.getText().toString(),phone,address,IBAN,username,bankName1,MainActivity.userID);
+                Post product=new Post(id,materialname.getText().toString(),coursename.getText().toString(),uniname.getSelectedItem().toString(),spinner.getSelectedItem().toString(),price.getText().toString(),description.getText().toString(),phone,address,IBAN,username,bankName1,MainActivity.userID,URL);
                 db.child(id).setValue(product);
                 alertDialog.dismiss();
                 finish();
@@ -86,6 +86,12 @@ public class UPmyposts extends AppCompatActivity {
 
         });
 
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

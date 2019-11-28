@@ -18,7 +18,6 @@
             android:id="@+id/main_img"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#5FB5C4"
             android:padding="20dp"
             />
 
@@ -189,6 +188,17 @@
             android:text="Add to favorite"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageViewPost"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="44dp" />
 
 
     </RelativeLayout>

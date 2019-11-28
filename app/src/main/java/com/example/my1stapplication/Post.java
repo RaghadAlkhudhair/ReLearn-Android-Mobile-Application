@@ -9,7 +9,17 @@ public class Post implements java.io.Serializable {
     private String price;
     private String accountowner;
     private String description;
-    private String phone,address,IBAN, username,bankname;
+    private String phone,address,IBAN, username,bankname,url;
+    public static String wphotoUrl;
+    public static boolean photoIsUploaded=false;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Post() {
     }
@@ -24,7 +34,7 @@ public class Post implements java.io.Serializable {
         this.description=description;
     }
 
-    public Post(String postID,String materialname, String coursename, String uniname,String materialtype, String price, String description ,String phone,String address,String IBAN, String username, String bankname ,String userID) {
+    public Post(String postID,String materialname, String coursename, String uniname,String materialtype, String price, String description ,String phone,String address,String IBAN, String username, String bankname ,String userID,String url) {
         this.postID = postID;
         this.materialname = materialname ;
         this.coursename = coursename;
@@ -38,6 +48,7 @@ public class Post implements java.io.Serializable {
         this.username=username;
         this.bankname=bankname;
         this.userID=userID;
+        this.url=url;
     }
 
     public String getUserID() {

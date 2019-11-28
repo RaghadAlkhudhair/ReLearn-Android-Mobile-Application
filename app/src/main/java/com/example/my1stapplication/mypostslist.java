@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.sql.Array;
@@ -21,6 +22,7 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.my1stapplication.Post;
 import com.example.my1stapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,7 +79,8 @@ public class mypostslist extends ArrayAdapter<Post> {
         coursename1.setText(post.getCoursename());
         uniname1.setText(post.getUniname());
         price1.setText(post.getPrice());
-
+        ImageView photoImageView = (ImageView) listviewitem.findViewById(R.id.imageViewPost);
+        Glide.with(photoImageView.getContext()).load(post.getUrl()).into(photoImageView);
         aUa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +97,7 @@ public class mypostslist extends ArrayAdapter<Post> {
                 n.putExtra("address",post.getAddress());
                 n.putExtra("IBAN",post.getIBAN());
                 n.putExtra("username",post.getUsername());
+                n.putExtra("URL",post.getUrl());
                 getContext().finish();
                 getContext().startActivity(n);
             }

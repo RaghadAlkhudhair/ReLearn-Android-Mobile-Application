@@ -56,7 +56,7 @@ public class CartList extends Activity {
     final HashMap<String, Object> cartMap=new HashMap<>();
     Button confirmButton;
     Button Back;
-
+    Post post ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,7 +94,7 @@ public class CartList extends Activity {
                 int counter=0;
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Log.e("test for cart",postSnapshot.getKey());
-                    Post post = postSnapshot.getValue(Post.class);
+                    post = postSnapshot.getValue(Post.class);
                     Log.e("test for cart", post.getPostID());
                     counter++;
                     adapter.add(post);
@@ -116,10 +116,20 @@ public class CartList extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent intent = new Intent(CartList.this, datailscart.class);
-                intent.putExtra("itemName", postslist.get(position).getMaterialname());
-                intent.putExtra("itemPrice", postslist.get(position).getPrice());
-                intent.putExtra("uni", postslist.get(position).getUniname());
-                intent.putExtra("coursename", postslist.get(position).getCoursename());
+                intent.putExtra("itemName",post.getMaterialname());
+                intent.putExtra("itemPrice",post.getPrice());
+                intent.putExtra("uni",post.getUniname());
+                intent.putExtra("ID",post.getPostID());
+                intent.putExtra("desc",post.getDescription());
+                intent.putExtra("type",post.getMaterialtype());
+                intent.putExtra("coursename",post.getCoursename());
+                intent.putExtra("IBAN",post.getIBAN());
+                intent.putExtra("phone",post.getPhone());
+                intent.putExtra("address",post.getAddress());
+                intent.putExtra("username",post.getUsername());
+                intent.putExtra("bankname",post.getBankname());
+                intent.putExtra("userID",post.getUserID());
+                intent.putExtra("URL",post.getUrl());
                 intent.putExtra("Hide","true");
                 startActivity(intent);
             }
