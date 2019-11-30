@@ -19,8 +19,11 @@ import com.paypal.android.sdk.payments.PayPalPaymentDetails;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
+import com.test.my1stapplication.MapsActivity;
 
 import android.text.TextUtils;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -38,12 +41,14 @@ public class ConfirmOrder extends AppCompatActivity {
     DatabaseReference ordersref= FirebaseDatabase.getInstance().getReference("Orders");
     DatabaseReference postsref= FirebaseDatabase.getInstance().getReference("posts");
     DatabaseReference cartref= FirebaseDatabase.getInstance().getReference("Cart");
+    DatabaseReference db= FirebaseDatabase.getInstance().getReference("users");
     final HashMap<String, Object> ordersMap=new HashMap<>();
     public static final int PAYPAL_REQUEST_CODE=7171;
 
     private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_NO_NETWORK).clientId(Config.PAYPAL_CLIENT_ID);
     //Double totalPrice=getIntent().getDoubleExtra("totalPrice",0);
-
+    private ImageButton loc;
+    private TextView locText;
 
     @Override
     protected void onDestroy() {
@@ -68,12 +73,23 @@ public class ConfirmOrder extends AppCompatActivity {
         phoneNo = (EditText) findViewById(R.id.phoneNo);
         checkout = (Button) findViewById(R.id.checkout);
         String buyerID = getIntent().getStringExtra("buyerID");
+        loc=findViewById(R.id.loc);
+        locText=findViewById(R.id.locText);
         // Double totalPrice=getIntent().getDoubleExtra("totalPrice",0);
         //HashMap cart=(HashMap) getIntent().getSerializableExtra("cart");
+        if(db.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("current location")!=null)
+            locText.setText("Your location is saved. Click on the pin to view it");
 
 cancel=(Button)findViewById(R.id.cancel);
 
+loc.setOnClickListener(new View.OnClickListener(){
 
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(ConfirmOrder.this, MapsActivity.class);
+        startActivity(intent);
+    }
+});
 cancel.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -93,14 +109,18 @@ cancel.setOnClickListener(new View.OnClickListener() {
                 if (!TextUtils.isEmpty(district.getText().toString()) && !TextUtils.isEmpty(streetName.getText().toString())
                         && !TextUtils.isEmpty(houseNo.getText().toString()) && !TextUtils.isEmpty(phoneNo.getText().toString())) {
 
-if(phoneNo.getText().toString().length()==10 && !phoneNo.getText().toString().contains(".") )
-                    processPayment();
+                    if (db.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("current location") != null) {
+                        if (phoneNo.getText().toString().charAt(0) == '0' && phoneNo.getText().toString().charAt(1) == '5' && phoneNo.getText().toString().length() == 10)
+                            processPayment();
+                        else {
+                            Toast.makeText(getApplicationContext(), "please ensure phone number is valid", Toast.LENGTH_LONG).show();
+                        }
+                    } else
+                        Toast.makeText(getApplicationContext(), "please select your location", Toast.LENGTH_LONG).show();
 
-else{
-    Toast.makeText(getApplicationContext(), "please ensure phone number is valid", Toast.LENGTH_LONG).show();
-}
 
-                } else {
+                }
+    else {
                     Toast.makeText(getApplicationContext(), "please enter all fields", Toast.LENGTH_LONG).show();
                 }
             }

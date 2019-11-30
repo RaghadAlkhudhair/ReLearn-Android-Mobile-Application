@@ -115,30 +115,68 @@ confirm.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
-
-        if(!TextUtils.isEmpty(phone.getText().toString()) && !TextUtils.isEmpty(address.getText().toString())   && !TextUtils.isEmpty(IBAN.getText().toString()) && !TextUtils.isEmpty(username.getText().toString()) && !TextUtils.isEmpty(bankname.getText().toString()))
-        {
-            if(phone.getText().toString().length() != 10 || phone.getText().toString().contains(".") )
-            {
-                Toast.makeText(ConfrimAddMaterial.this,"please ensure phone number is valid", Toast.LENGTH_LONG).show();
+        if (phone.getText().toString().isEmpty()) {
+            if (IBAN.getText().toString().isEmpty()) {
+                Toast.makeText(ConfrimAddMaterial.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                IBAN.setError("IBAN field should not be empty");
+                Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                phone.setError("Phone field should not be empty");
+            }else{
+                Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                phone.setError("Phone field should not be empty");
             }
-            else{
-
-            String id1 = db.push().getKey();
-            String s1=phone.getText().toString().trim();
-            String s2= address.getText().toString().trim();
-            String s3=IBAN.getText().toString().trim();
-            String s4=username.getText().toString().trim();
-            String s5=bankname.getText().toString().trim();
-            Post p = new Post(id1, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5,MainActivity.userID,URL);
-            Log.e("user id post",p.getUserID());
-            postsref.child(id1).setValue(p);
-            Toast.makeText(ConfrimAddMaterial.this,"Material added successfully", Toast.LENGTH_LONG).show();
-            moveToHome();
-        }}
+        }
+        else if (IBAN.getText().toString().isEmpty()) {
+            if (phone.getText().toString().isEmpty()) {
+                Toast.makeText(ConfrimAddMaterial.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                IBAN.setError("IBAN field should not be empty");
+                Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                phone.setError("Phone field should not be empty");
+            } else {
+                Toast.makeText(ConfrimAddMaterial.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                IBAN.setError("IBAN field should not be empty");
+            }
+        }
+        else if(!IBAN.getText().toString().isEmpty() && (IBAN.getText().toString().charAt(0)!='S'||IBAN.getText().toString().charAt(1)!='A')){
+            Toast.makeText(ConfrimAddMaterial.this,"Check the IBAN", Toast.LENGTH_SHORT).show();
+            IBAN.setError("IBAN should start with SA");
+        } else
+        if(!phone.getText().toString().isEmpty() && (phone.getText().toString().charAt(0)!='0'||phone.getText().toString().charAt(1)!='5')) {
+            Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+            phone.setError("Phone number format is wrong");
+        }  else {
+            if (    !IBAN.getText().toString().isEmpty() &&    (IBAN.getText().toString().length() != 25)) {
+                if (!phone.getText().toString().isEmpty() && phone.length() != 10) {
+                    Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                    phone.setError("Phone should be 10 characters");
+                    Toast.makeText(ConfrimAddMaterial.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                    IBAN.setError("IBAN should be 25 characters and starting with SA");
+                } else{
+                    Toast.makeText(ConfrimAddMaterial.this, "Check the IBAN", Toast.LENGTH_SHORT).show();
+                    IBAN.setError("IBAN should be 25 characters and starting with SA");
+                }
+            } else if (!phone.getText().toString().isEmpty() && phone.length() != 10) {
+                Toast.makeText(ConfrimAddMaterial.this, "Check the phone", Toast.LENGTH_SHORT).show();
+                phone.setError("Phone should be 10 characters");
+            } else {
+                if(!phone.getText().toString().isEmpty() && !address.getText().toString().isEmpty() && !IBAN.getText().toString().isEmpty() && !username.getText().toString().isEmpty() && !bankname.getText().toString().isEmpty()){
+                    String id1 = db.push().getKey();
+                    String s1=phone.getText().toString().trim();
+                    String s2= address.getText().toString().trim();
+                    String s3=IBAN.getText().toString().trim();
+                    String s4=username.getText().toString().trim();
+                    String s5=bankname.getText().toString().trim();
+                    Post p = new Post(id1, materialname, coursename, uniname, materialtype, price, description, s1, s2, s3, s4, s5,MainActivity.userID,URL);
+                    Log.e("user id post",p.getUserID());
+                    postsref.child(id1).setValue(p);
+                    Toast.makeText(ConfrimAddMaterial.this,"Material added successfully", Toast.LENGTH_LONG).show();
+                    moveToHome();
+                }
         else
             Toast.makeText(ConfrimAddMaterial.this,"please ensure all fields are filled", Toast.LENGTH_LONG).show();
 
+            }
+        }
     }
 });
 

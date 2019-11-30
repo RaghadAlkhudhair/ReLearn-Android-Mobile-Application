@@ -111,11 +111,6 @@ public class BooksList extends AppCompatActivity implements NavigationView.OnNav
                         Intent Intentcart = new Intent(BooksList.this, CartList.class);
                         startActivity(Intentcart);
                         break;
-                    case R.id.map:
-                        Toast.makeText(BooksList.this, "Map", Toast.LENGTH_SHORT).show();
-                        Intent IntentMap = new Intent(BooksList.this, MapsActivity.class);
-                        startActivity(IntentMap);
-                        break;
                     case R.id.post:
                         Toast.makeText(BooksList.this, "post", Toast.LENGTH_SHORT).show();
                         Intent Intentpost = new Intent(BooksList.this, test.class);
